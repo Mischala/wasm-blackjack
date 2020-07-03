@@ -6,11 +6,10 @@ mod utils;
 mod blackjack;
 use crate::blackjack::Game;
 
-
 static GAME_STATE: Lazy<Mutex<Game>> = Lazy::new( || {
+    utils::set_panic_hook();
     Mutex::new(Game::new())
 });
-
 
 #[wasm_bindgen]
 pub fn start_new_game() {
