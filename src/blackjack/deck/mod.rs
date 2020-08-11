@@ -69,8 +69,10 @@ impl Deck {
     pub fn new() -> Deck {
         let mut rng = StdRng::from_entropy();
         let mut unshuffled_deck = make_deck();
+
         unshuffled_deck.shuffle(&mut rng);
         let deck = unshuffled_deck;
+
         Deck {
             deck: deck
         }
